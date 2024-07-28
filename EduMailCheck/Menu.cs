@@ -1,19 +1,19 @@
-﻿namespace EduMailCheck
+﻿
+using System;
+
+namespace EduMailCheck
 {
     public class Menu
     {
         public static void Display()
         {
-
             var LoginContent = "1- Giriş yapmak için 1'e basınız.";
-            
             var RegisterContent = "2- Kayıt olmak için 2'ye basınız.";
-
             var ExitContent = "3- Çıkmak için 3'e basınız.";
-
 
             Console.WriteLine(LoginContent + "\n" + RegisterContent + "\n" + ExitContent);
         }
+
         public static void Read()
         {
             bool validInput = false;
@@ -24,12 +24,12 @@
 
                 if (input == "1")
                 {
-                    Console.WriteLine("1'e bastınız.");
+                    LoginDisplay();
                     validInput = true;
                 }
                 else if (input == "2")
                 {
-                    Console.WriteLine("2'ye bastınız.");
+                    RegisterDisplay();
                     validInput = true;
                 }
                 else if (input == "3")
@@ -43,10 +43,47 @@
                 }
             }
         }
-    }
-    }
 
+        public static void LoginDisplay()
+        {
+            Console.WriteLine("E-posta giriniz:");
+            string email = Console.ReadLine();
 
+            Console.WriteLine("Şifrenizi giriniz:");
+            string password = Console.ReadLine();
+
+            Console.WriteLine("Girdiğiniz E-posta: " + email);
+            Console.WriteLine("Girdiğiniz Şifre: " + password);
+        }
+
+        public static void RegisterDisplay()
+        {
+            Console.WriteLine("E-posta giriniz:");
+            string email = Console.ReadLine();
+
+            Console.WriteLine("Şifrenizi giriniz:");
+            string password1 = Console.ReadLine();
+
+            Console.WriteLine("Şifrenizi yeniden giriniz:");
+            string password2 = Console.ReadLine();
+
+            while (password1 != password2)
+            {
+                Console.WriteLine("Şifreler uyuşmuyor. Lütfen aynı şifreyi giriniz.");
+                Console.WriteLine("Şifrenizi giriniz:");
+                password1 = Console.ReadLine();
+                Console.WriteLine("Şifrenizi yeniden giriniz:");
+                password2 = Console.ReadLine();
+            }
+
+            Console.WriteLine("Girdiğiniz E-posta: " + email);
+            Console.WriteLine("Girdiğiniz Şifre: " + password1);
+            Console.WriteLine("Girdiğiniz Şifre (tekrar): " + password2);
+            Console.WriteLine("Sisteme hoşgeldiniz!");
+
+        }
+    }
+}
+
+       
     
-
-
