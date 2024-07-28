@@ -16,36 +16,35 @@
         }
         public static void Read()
         {
-            var input = Console.ReadLine();
+            bool validInput = false;
 
-            if (input == "1")
+            while (!validInput)
             {
-                Console.WriteLine("1'e bastınız.");
-                Console.ReadLine();
+                var input = Console.ReadLine();
 
+                switch (input)
+                {
+                    case "1":
+                        Console.WriteLine("1'e bastınız.");
+                        validInput = true;
+                        break;
+                    case "2":
+                        Console.WriteLine("2'ye bastınız.");
+                        validInput = true;
+                        break;
+                    case "3":
+                        Console.WriteLine("Çıkış yapılıyor.");
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Lütfen geçerli bir değer giriniz.");
+                        break;
+                }
             }
-            else if (input == "2")
-            {
-                Console.WriteLine("2'ye bastınız.");
-                Console.ReadLine();
-
-            }
-            else if (input == "3")
-            {
-                Console.WriteLine("Çıkış yapılıyor.");
-                Environment.Exit(0);
-            }
-            else {
-                Console.WriteLine("Lütfen geçerli bir değer giriniz.");
-                Console.ReadLine() ; 
-          
-                
-            }
-            Read();
         }
-
-
-
     }
-
 }
+
+    
+
+
