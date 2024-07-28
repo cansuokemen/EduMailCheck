@@ -22,28 +22,30 @@
             {
                 var input = Console.ReadLine();
 
-                switch (input)
+                if (input == "1")
                 {
-                    case "1":
-                        Console.WriteLine("1'e bastınız.");
-                        validInput = true;
-                        break;
-                    case "2":
-                        Console.WriteLine("2'ye bastınız.");
-                        validInput = true;
-                        break;
-                    case "3":
-                        Console.WriteLine("Çıkış yapılıyor.");
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        Console.WriteLine("Lütfen geçerli bir değer giriniz.");
-                        break;
+                    Console.WriteLine("1'e bastınız.");
+                    validInput = true;
+                }
+                else if (input == "2")
+                {
+                    Console.WriteLine("2'ye bastınız.");
+                    validInput = true;
+                }
+                else if (input == "3")
+                {
+                    Console.WriteLine("Çıkış yapılıyor.");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Lütfen geçerli bir değer giriniz.");
                 }
             }
         }
     }
-}
+    }
+
 
     
 
