@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace EduMailCheck
 {
@@ -24,12 +23,12 @@ namespace EduMailCheck
 
                 if (input == "1")
                 {
-                    LoginDisplay();
+                    LoginHandler.Display();
                     validInput = true;
                 }
                 else if (input == "2")
                 {
-                    RegisterDisplay();
+                    RegisterHandler.Display();
                     validInput = true;
                 }
                 else if (input == "3")
@@ -43,8 +42,11 @@ namespace EduMailCheck
                 }
             }
         }
+    }
 
-        public static void LoginDisplay()
+    public class LoginHandler
+    {
+        public static void Display()
         {
             Console.WriteLine("E-posta giriniz:");
             string email = Console.ReadLine();
@@ -55,8 +57,11 @@ namespace EduMailCheck
             Console.WriteLine("Girdiğiniz E-posta: " + email);
             Console.WriteLine("Girdiğiniz Şifre: " + password);
         }
+    }
 
-        public static void RegisterDisplay()
+    public class RegisterHandler
+    {
+        public static void Display()
         {
             Console.WriteLine("E-posta giriniz:");
             string email = Console.ReadLine();
@@ -64,6 +69,21 @@ namespace EduMailCheck
             Console.WriteLine("Şifrenizi giriniz:");
             string password1 = Console.ReadLine();
 
+            bool passwordsMatch = PasswordChecker.CheckPasswords(password1);
+
+            if (passwordsMatch)
+            {
+                Console.WriteLine("Girdiğiniz E-posta: " + email);
+                Console.WriteLine("Girdiğiniz Şifre: " + password1);
+                Console.WriteLine("Sisteme hoşgeldiniz!");
+            }
+        }
+    }
+
+    public class PasswordChecker
+    {
+        public static bool CheckPasswords(string password1)
+        {
             Console.WriteLine("Şifrenizi yeniden giriniz:");
             string password2 = Console.ReadLine();
 
@@ -76,14 +96,7 @@ namespace EduMailCheck
                 password2 = Console.ReadLine();
             }
 
-            Console.WriteLine("Girdiğiniz E-posta: " + email);
-            Console.WriteLine("Girdiğiniz Şifre: " + password1);
-            Console.WriteLine("Girdiğiniz Şifre (tekrar): " + password2);
-            Console.WriteLine("Sisteme hoşgeldiniz!");
-
+            return true;
         }
     }
 }
-
-       
-    
